@@ -1,0 +1,116 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital@1&display=swap');
+/* variable declaration */
+:root {
+    --primary: #488286;
+    --primary-light:#0899a3a6;
+    --secondray: #56595a;
+    --secondray-light:#77878B;
+}
+::selection {
+    background-color: var(--secondray-light);
+    color: var(--secondray);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+li{
+    list-style-type: none;
+    margin-left:20px;
+}
+a{
+    text-decoration: none;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+header{
+    min-height: 100vh;
+    background-image:linear-gradient(rgba(0,0,0, 0.75),rgba(0,0,0, 0.75)), url(https://ifair.eu/wordpress/wp-content/uploads/2020/05/worldmap_money_web.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+}
+    
+.header-content{
+    padding:0 2rem;
+    margin: auto;
+    height: 12vh;
+    opacity: none;
+    
+}
+
+
+.nav-flex{
+    width: 20%;
+    margin-left: auto;
+    padding: 35px 0;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+
+}
+.logo{
+    height: 50px;
+}
+.logo img{
+    border-radius: 30%;
+}
+.nav-flex ul li{
+    list-style: none;
+    display:inline-block;
+    margin: 0 20 px;
+}
+
+
+.text-area{
+    color: rgb(249, 249, 249);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    transition: all 400ms;
+    z-index: 3;
+}
+
+.text-area h1{
+    margin: 1rem 0;
+}
+.text-area button{
+    color:#fff;
+}
+button {
+    width: 200px;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    padding: 15px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20%;
+  }
+  
+  button:hover {
+    background-color: #488286
+  }
+
+/* common styles */
+.flex-design {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

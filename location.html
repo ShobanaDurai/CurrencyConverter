@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange Locator</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            margin-top: 4%;
+        }
+
+        #map {
+            height: 600px;
+        }
+        .lmap{
+            margin-bottom: 4%;
+        }
+    </style>
+</head>
+<body>
+<div class="lmap">
+    <label for="cityInput">Enter City:</label>
+    <input type="text" id="cityInput" />
+    <button onclick="locateCity()">Locate Currency Exchange Area</button>
+</div>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    const map = L.map('map').setView([20.5937, 78.9629], 4); // Default center (India)
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    function locateCity() {
+        const cityInput = document.getElementById('cityInput');
+        const city = cityInput.value;
+        const geocodingApi = `https://nominatim.openstreetmap.org/search?format=json&q=${city}`;
+
+        fetch(geocodingApi)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    const { lat, lon } = data[0];
+                    map.setView([lat, lon], 10);
+                    const marker = L.marker([lat, lon]).addTo(map);
+                    marker.bindPopup(`<b>${city}</b>`).openPopup();
+                } else {
+                    alert('City not found. Please enter a valid city name.');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching city coordinates:', error);
+            });
+    }
+</script>
+</body>
+</html>

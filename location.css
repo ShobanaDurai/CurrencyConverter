@@ -1,0 +1,17 @@
+#map {
+    height: 500px;
+    width: 100%;
+  }
+  
+  #controls {
+    margin-top: 20px;
+  }
+  
+  #currency-select {
+    width: 150px;
+  }
+  
+  #locate-button {
+    margin-left: 10px;
+  }
+  
